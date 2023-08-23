@@ -23,9 +23,8 @@ class OutputsWordsPolynomials:
 
     def __next__(self):
         # for word in self.list_of_words_param:
-        if self.number_of_word_in_list_param >= len(self.list_of_words_param):
-            raise StopIteration
-        else:
+        while self.number_of_word_in_list_param < len(self.list_of_words_param):
+
             word = self.list_of_words_param[self.number_of_word_in_list_param]
             i = 1
             s2 = ""
@@ -38,7 +37,9 @@ class OutputsWordsPolynomials:
                 return word
             else:
                 self.number_of_word_in_list_param += 1
-                return next(self)
+                # return next(self)
+
+        raise StopIteration
 
 
 my_iterator = OutputsWordsPolynomials(list_of_words)

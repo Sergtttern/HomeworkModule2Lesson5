@@ -20,16 +20,19 @@ class EvenNumbersFromRange:
         return self
 
     def __next__(self):
-        if self.i > self.end:
-            raise StopIteration
-        elif self.i % 2 == 0:
-            result = self.i
-            self.i += 1
-            return result
-        else:
-            pass
-            self.i += 1
-            return next(self)
+        while self.i <= self.end:
+            if self.i % 2 == 0:
+                result = self.i
+                self.i += 1
+                # print("Even number")
+                return result
+            else:
+                self.i += 1
+                # continue
+                # return next(self)
+
+        raise StopIteration
+
 
 
 my_iterator = EvenNumbersFromRange(1,10)
